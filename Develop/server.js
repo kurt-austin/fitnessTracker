@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const compression = require("compression");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,13 +10,13 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// require("./routes/apiRoutes")(app);
+require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var path = require("path");
+// var path = require("path");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
-  useNewUrlParser: true
+  useNewUrlParser: true,
   useFindAndModify: false
 });
 

@@ -4,7 +4,7 @@
 
 
 // Requiring our Workout model
-var db = require("../models");
+var db = require("../models/models.js");
 
 
 // Routes
@@ -28,15 +28,15 @@ module.exports = function(app) {
 app.put("/api/workouts/:id", (req, res)=>{
     db.Workout.updateOne({_id: req.params.id},
         { $push: {exercises: req.body}}
-    )
+    ).then ((data)=>{
+        res.json(data)
+    })
   
-}).then ((data)=>{
-    res.json(data)
-}).catch(error =>{
+.catch(error =>{
     console.log(error);
 });
 
-
+});
 
 // Create Workout
 
