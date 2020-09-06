@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const Workout = require("./models/models.js")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +12,7 @@ app.use(express.json());
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
 
 // var path = require("path");
 

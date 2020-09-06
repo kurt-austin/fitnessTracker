@@ -4,7 +4,9 @@
 
 
 // Requiring our Workout model
-var db = require("../models/models.js");
+
+// var db = require("../models/models.js");
+var Workout = require("../models/models.js");
 
 
 // Routes
@@ -12,8 +14,21 @@ var db = require("../models/models.js");
 module.exports = function(app) {
 
 // Get Last Workout
+// app.get("/api/workouts", (req, res)=>{
+//     db.Workout.find({}, (error,data) => {
+//         if (error){
+//             console.log(error)
+//         } else {
+//             res.json(data)
+//         }
+//     }).sort({_id:-1}).limit(1)
+// });
+
+
+
+
     app.get("/api/workouts", (req, res)=>{
-        db.Workout.find({}, (error,data) => {
+        Workout.find({}, (error,data) => {
             if (error){
                 console.log(error)
             } else {
@@ -23,10 +38,27 @@ module.exports = function(app) {
     });
 
 
-// Add Exercise  
+// Add Exercise 
+
+// app.put("/api/workouts/:id", (req, res)=>{
+//     db.Workout.updateOne({_id: req.params.id},
+//         { $push: {exercises: req.body}}
+//     ).then ((data)=>{
+//         res.json(data)
+//     })
+  
+// .catch(error =>{
+//     console.log(error);
+// });
+
+// });
+
+
+
+
 
 app.put("/api/workouts/:id", (req, res)=>{
-    db.Workout.updateOne({_id: req.params.id},
+    Workout.updateOne({_id: req.params.id},
         { $push: {exercises: req.body}}
     ).then ((data)=>{
         res.json(data)
@@ -40,8 +72,24 @@ app.put("/api/workouts/:id", (req, res)=>{
 
 // Create Workout
 
+// app.post("/api/workouts", (req, res)=>{
+//     db.Workout.insert(req.body, (error,data) => {
+//         if (error){
+//             console.log(error)
+//         } else {
+//             res.json(data)
+//         }
+//     })
+
+// });
+
+
+
+
+
+
   app.post("/api/workouts", (req, res)=>{
-      db.Workout.insert(req.body, (error,data) => {
+      Workout.insert(req.body, (error,data) => {
           if (error){
               console.log(error)
           } else {
@@ -54,8 +102,25 @@ app.put("/api/workouts/:id", (req, res)=>{
 
 // Get Workouts in Range
 
+// app.get("/api/workouts/range", (req, res)=>{
+//     db.Workout.find({}, (error,data) => {
+//         if (error){
+//             console.log(error)
+//         } else {
+//             res.json(data)
+//         }
+//     })
+ 
+// });
+
+
+
+
+
+
+
 app.get("/api/workouts/range", (req, res)=>{
-    db.Workout.find({}, (error,data) => {
+    Workout.find({}, (error,data) => {
         if (error){
             console.log(error)
         } else {
