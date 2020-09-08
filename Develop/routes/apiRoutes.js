@@ -58,6 +58,8 @@ module.exports = function(app) {
 
 
 app.put("/api/workouts/:id", (req, res)=>{
+    console.log(req.body);
+    console.log(req.params.id)
     Workout.updateOne({_id: req.params.id},
         { $push: {exercises: req.body}}
     ).then ((data)=>{
@@ -89,7 +91,7 @@ app.put("/api/workouts/:id", (req, res)=>{
 
 
   app.post("/api/workouts", (req, res)=>{
-      Workout.insert(req.body, (error,data) => {
+      Workout.create(req.body, (error,data) => {
           if (error){
               console.log(error)
           } else {
