@@ -31,8 +31,8 @@
 
 ## App 
 
-  ![Note Taker1](./assets/img/Notetaker1.png)
-  ![Note Taker2](./assets/img/Notetaker2.png)
+  ![Fitness Tracker1](./public/fitness1.png)
+  ![Fitness Tracker2](./public/fitness2.png)
 
 ## Questions
 
